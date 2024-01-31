@@ -6,6 +6,7 @@ class ProductManager {
         this.path = path
     }
 
+
     async addProduct(producto){
         let {title, description, code, price, status, stock, category, thumbnails} = producto
     
@@ -18,6 +19,7 @@ class ProductManager {
             producto.status = true
         }
 
+        
         const repetido = this.products.find((element) => element.code == producto.code)
 
         if(repetido != undefined){

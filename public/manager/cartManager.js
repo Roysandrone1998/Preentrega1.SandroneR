@@ -26,17 +26,15 @@ class CartManager {
         this.carts.push(cart)
         await fs.promises.writeFile(this.path,JSON.stringify(this.carts))
         return cart
-
     }
 
     getProducts(id){
         let cart = this.carts.find(element =>element.id == id)
         return cart.products
-
     }
-
     async addProductToCart(cartId,productId){
         
+
         let cart_to_modify = this.carts[this.carts.findIndex(element => element.id == cartId)]
         if(!cart_to_modify){
             return {error:"carrito inexistente"}
